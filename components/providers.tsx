@@ -11,5 +11,17 @@ interface Props {
 }
 
 export function Providers({ children }: Props) {
-  return <>{children}</>
+  return <CartProvider
+    currency="INR"
+    cartMode="checkout-session"
+    ShouldPersist="true"
+    stripe={process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY!}
+
+  >
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <Toaster />
+      {children}
+      <TailwindIndicator />
+    </ThemeProvider>
+    </CartProvider>
 }
