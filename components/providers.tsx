@@ -14,7 +14,7 @@ export function Providers({ children }: Props) {
   return <CartProvider
     currency="INR"
     cartMode="checkout-session"
-    shouldPersist="true"
+    shouldPersist={true}
     stripe={process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY!}
 
   >
